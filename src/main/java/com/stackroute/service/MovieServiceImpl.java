@@ -3,6 +3,7 @@ package com.stackroute.service;
 import com.stackroute.domain.Movie;
 import com.stackroute.repository.MoviesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
