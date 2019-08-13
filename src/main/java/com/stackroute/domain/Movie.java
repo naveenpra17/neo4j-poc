@@ -17,6 +17,5 @@ public class Movie {
     @Id
     private int id;
     private String movieName;
-    private int released;
-
+    private int movieReleased;
 }
