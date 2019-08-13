@@ -14,7 +14,7 @@ import org.neo4j.ogm.annotation.NodeEntity;
 @NoArgsConstructor
 @ToString
 
-public class Movie {
+public class Critic {
     @GraphId
     private int id;
     private String movieName;
