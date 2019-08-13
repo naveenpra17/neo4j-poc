@@ -4,7 +4,7 @@ import com.stackroute.domain.Movie;
 import com.stackroute.repository.MoviesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
+import java.util.Optional;
 
 public class MovieServiceImpl implements MovieService {
     private MoviesRepository moviesRepository;
@@ -21,21 +21,24 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public Movie saveMovie(Movie movie) {
-        return null;
+        return moviesRepository.save(movie);
     }
 
     @Override
-    public List<Movie> getAllMovie() {
-        return null;
+    public Iterable<Movie> getAllMovie() {
+        return moviesRepository.findAll();
     }
 
     @Override
-    public Movie deleteMovieById() {
-        return null;
+    public Movie deleteMovieById(int id) {
+        Optional<Movie> optionalMovie = moviesRepository.findById(id);
+        moviesRepository.deleteById(id);
+        return optionalMovie.get();
     }
 
     @Override
-    public Movie updateById() {
-        return null;
+    public Movie updateById(Movie movie) {
+        moviesRepository.deleteById(movie.getId());
+        return moviesRepository.save(movie);
     }
 }

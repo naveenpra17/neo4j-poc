@@ -8,7 +8,7 @@ public interface MovieService {
 
     Movie getMovieById(int id);
     Movie saveMovie(Movie movie);
-    List<Movie> getAllMovie();
-    Movie deleteMovieById();
-    Movie updateById();
+    Iterable<Movie> getAllMovie();
+    Movie deleteMovieById(int id);
+    Movie updateById(Movie movie);
 }
