@@ -12,4 +12,5 @@ import java.util.Collection;
 public interface CriticRepository extends Neo4jRepository<Critic, Long> {
     @Query("MATCH (c:Critic)<-[r:RATED]-(m:Movie) RETURN c,r,m")
     Collection<Critic> getAllCritic();
+
 }

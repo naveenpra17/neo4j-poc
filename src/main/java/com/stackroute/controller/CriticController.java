@@ -28,6 +28,16 @@ public class CriticController {
         System.out.println("****" + critic);
         return ratingService.saveCritic(critic);
     }
+    @PostMapping(value = "/critic")
+    public Critic updateCritic(@RequestBody Critic critic) {
+        System.out.println("****" + critic);
+        return ratingService.updateCriticById(critic);
+    }
+    @PostMapping(value = "/critic")
+    public Movie updateMovie(@RequestBody Movie movie) {
+        System.out.println("****" +  movie);
+        return ratingService.updateMovieById(movie);
+    }
 
     @PostMapping(value = "/movie")
     public Movie saveMovie(@RequestBody Movie movie) {
