@@ -1,11 +1,10 @@
 package com.stackroute.controller;
 
 import com.stackroute.domain.Critic;
+import com.stackroute.domain.Movie;
 import com.stackroute.service.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
@@ -13,13 +12,33 @@ import java.util.Collection;
 @RequestMapping(value = "api/v1")
 public class CriticController {
     private RatingService ratingService;
+
     @Autowired
-    private CriticController(RatingService ratingService){
+    private CriticController(RatingService ratingService) {
         this.ratingService = ratingService;
     }
-    @GetMapping
-    public Collection<Critic> getAllCritic(){
+
+    @GetMapping(value = "/critics")
+    public Collection<Critic> getAllCritic() {
         return ratingService.getAllCritic();
     }
+
+    @PostMapping(value = "/critic")
+    public Critic saveCritic(@RequestBody Critic critic) {
+        System.out.println("****" + critic);
+        return ratingService.saveCritic(critic);
+    }
+
+    @PostMapping(value = "/movie")
+    public Movie saveMovie(@RequestBody Movie movie) {
+        System.out.println("****" + movie);
+        return ratingService.saveMovie(movie);
+    }
+
+    @GetMapping(value = "/movies")
+    public Iterable<Movie> getAllMovie() {
+        return ratingService.getAllMovie();
+    }
+
 
 }
