@@ -23,20 +23,21 @@ public class CriticController {
         return ratingService.getAllCritic();
     }
 
+    @GetMapping(value = "/movies")
+    public Iterable<Movie> getAllMovie() {
+        return ratingService.getAllMovie();
+    }
+
     @PostMapping(value = "/critic")
     public Critic saveCritic(@RequestBody Critic critic) {
         System.out.println("****" + critic);
         return ratingService.saveCritic(critic);
     }
+
     @PostMapping(value = "/critic")
     public Critic updateCritic(@RequestBody Critic critic) {
         System.out.println("****" + critic);
         return ratingService.updateCriticById(critic);
-    }
-    @PostMapping(value = "/critic")
-    public Movie updateMovie(@RequestBody Movie movie) {
-        System.out.println("****" +  movie);
-        return ratingService.updateMovieById(movie);
     }
 
     @PostMapping(value = "/movie")
@@ -45,9 +46,22 @@ public class CriticController {
         return ratingService.saveMovie(movie);
     }
 
-    @GetMapping(value = "/movies")
-    public Iterable<Movie> getAllMovie() {
-        return ratingService.getAllMovie();
+    @PostMapping(value = "/movie")
+    public Movie updateMovie(@RequestBody Movie movie) {
+        System.out.println("****" + movie);
+        return ratingService.updateMovieById(movie);
+    }
+
+    @DeleteMapping(value = "/critic")
+    public Critic deleteCritic(@RequestBody Critic critic) {
+        System.out.println("****" + critic);
+        return ratingService.deleteCriticById(critic.getId());
+    }
+
+    @DeleteMapping(value = "/movie")
+    public Movie deleteMovie(@RequestBody Movie movie) {
+        System.out.println("****" + movie);
+        return ratingService.deleteMovieById(movie.getId());
     }
 
 

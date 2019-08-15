@@ -22,8 +22,9 @@ public class RatingServiceImpl implements RatingService {
     }
 
     @Override
-    public Critic getCriticById(long id) {
-        return criticRepository.findById(id).get();
+    public Critic getCriticById(Critic critic) {
+
+        return criticRepository.findById(critic.getId()).get();
     }
 
     @Override
@@ -38,9 +39,9 @@ public class RatingServiceImpl implements RatingService {
     }
 
     @Override
-    public Critic deleteCriticById(long id) {
-        Optional<Critic> optionalMovie = criticRepository.findById(id);
-        criticRepository.deleteById(id);
+    public Critic deleteCriticById(Critic critic) {
+        Optional<Critic> optionalMovie = criticRepository.findById(critic.getId());
+        criticRepository.deleteById(critic.getId());
         return optionalMovie.get();
     }
 
@@ -49,26 +50,33 @@ public class RatingServiceImpl implements RatingService {
         criticRepository.deleteById(critic.getId());
         return criticRepository.save(critic);
     }
-@Override
-    public Movie getMovieById(long id) {
-        return movieRepository.findById(id).get();
+
+    @Override
+    public Movie getMovieById(Movie movie) {
+
+        return movieRepository.findById(movie.getId()).get();
     }
-@Override
+
+    @Override
     public Movie saveMovie(Movie movie) {
+
         return movieRepository.save(movie);
     }
 
-@Override
+    @Override
     public Iterable<Movie> getAllMovie() {
+
         return movieRepository.findAll();
     }
 
-    public Movie deleteMovieById(long id) {
-        Optional<Movie> optionalMovie = movieRepository.findById(id);
-        movieRepository.deleteById(id);
+    @Override
+    public Movie deleteMovieById(Movie movie) {
+        Optional<Movie> optionalMovie = movieRepository.findById(movie.getId());
+        movieRepository.deleteById(movie.getId());
         return optionalMovie.get();
     }
 
+    @Override
     public Movie updateMovieById(Movie movie) {
         movieRepository.deleteById(movie.getId());
         return movieRepository.save(movie);

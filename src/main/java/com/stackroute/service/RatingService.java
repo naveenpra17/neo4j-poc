@@ -6,23 +6,23 @@ import com.stackroute.domain.Movie;
 import java.util.Collection;
 
 public interface RatingService {
-    Critic getCriticById(long id);
+    Critic getCriticById(Critic critic);
 
     Critic saveCritic(Critic movie);
 
     Collection<Critic> getAllCritic();
 
-    Critic deleteCriticById(long id);
+    Critic deleteCriticById(Critic critic);
 
     Critic updateCriticById(Critic movie);
 
-    Movie getMovieById(long id);
+    Movie getMovieById(Movie movie);
 
     Movie saveMovie(Movie movie);
 
     Iterable<Movie> getAllMovie();
 
-    Movie deleteMovieById(long id);
+    Movie deleteMovieById(Movie movie);
 
     Movie updateMovieById(Movie movie);
 }
