@@ -81,4 +81,10 @@ public class RatingServiceImpl implements RatingService {
         movieRepository.deleteById(movie.getId());
         return movieRepository.save(movie);
     }
+
+    @Override
+    public Critic setRelation(long criticId, long movieId, int rating) {
+        return criticRepository.setRelation(rating);
+    }
+
 }

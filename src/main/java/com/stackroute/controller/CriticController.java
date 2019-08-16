@@ -34,7 +34,7 @@ public class CriticController {
         return ratingService.saveCritic(critic);
     }
 
-    @PostMapping(value = "/critic")
+    @PutMapping(value = "/critic")
     public Critic updateCritic(@RequestBody Critic critic) {
         System.out.println("****" + critic);
         return ratingService.updateCriticById(critic);
@@ -46,7 +46,7 @@ public class CriticController {
         return ratingService.saveMovie(movie);
     }
 
-    @PostMapping(value = "/movie")
+    @PutMapping(value = "/movie")
     public Movie updateMovie(@RequestBody Movie movie) {
         System.out.println("****" + movie);
         return ratingService.updateMovieById(movie);
@@ -55,13 +55,18 @@ public class CriticController {
     @DeleteMapping(value = "/critic")
     public Critic deleteCritic(@RequestBody Critic critic) {
         System.out.println("****" + critic);
-        return ratingService.deleteCriticById(critic.getId());
+        return ratingService.deleteCriticById(critic);
     }
 
     @DeleteMapping(value = "/movie")
     public Movie deleteMovie(@RequestBody Movie movie) {
         System.out.println("****" + movie);
-        return ratingService.deleteMovieById(movie.getId());
+        return ratingService.deleteMovieById(movie);
+    }
+
+    @PostMapping(value = "/critic/set")
+    public Critic setRelation(@RequestParam long criticId, long movieId, int rating) {
+        return ratingService.setRelation(criticId, movieId, rating);
     }
 
 
