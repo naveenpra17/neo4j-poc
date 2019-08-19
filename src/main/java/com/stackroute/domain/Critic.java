@@ -22,7 +22,7 @@ public class Critic {
     private String name;
     private int age;
 
-    @Relationship(type = "RATED", direction = Relationship.INCOMING)
+    @Relationship(type = "RATED", direction = Relationship.OUTGOING)
     private List<Movie> movies;
 
 }

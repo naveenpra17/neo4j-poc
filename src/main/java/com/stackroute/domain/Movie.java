@@ -14,7 +14,7 @@ import org.neo4j.ogm.annotation.NodeEntity;
 @NoArgsConstructor
 @ToString
 
-public class Movie {
+public class    Movie {
     @Id
     private long id;
     private String title;
